@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - SienaSeeks</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffdab9;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: linear-gradient(90deg, #f08080, #f8ad9d);
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            margin-left: 1rem;
+            transition: transform 0.2s ease;
+        }
+
+        nav button:hover {
+            transform: scale(1.1);
+        }
+
+        .messages-container {
+            display: flex;
+            height: calc(100vh - 70px);
+        }
+
+        .chat-list {
+            width: 30%;
+            background-color: #f8ad9d;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+
+        .chat-list .chat-item {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .chat-list .chat-item:hover {
+            background-color: #fbc4ab;
+        }
+
+        .chat-window {
+            flex-grow: 1;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 1rem;
+            border-left: 2px solid #f8ad9d;
+        }
+
+        .chat-header {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #f08080;
+            margin-bottom: 1rem;
+        }
+
+        .chat-messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            margin-bottom: 1rem;
+        }
+
+        .chat-messages .message {
+            margin-bottom: 1rem;
+        }
+
+        .chat-messages .message .sender {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .chat-messages .message .text {
+            margin-left: 1rem;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .chat-input {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .chat-input input {
+            flex-grow: 1;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .chat-input button {
+            padding: 0.5rem 1rem;
+            background-color: #f4978e;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .chat-input button:hover {
+            background-color: #f08080;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SienaSeeks</h1>
+        <nav>
+            <button onclick="window.location.href='mapboard.html'">Mapboard</button>
+            <button onclick="window.location.href='feed.html'">Feed</button>
+            <button onclick="window.location.href='messages.html'">Messages</button>
+            <button onclick="window.location.href='profile.html'">Profile</button>
+        </nav>
+    </header>
+
+    <div class="messages-container">
+        <div class="chat-list">
+            <div class="chat-item" onclick="openChat('Harper Kaplinski')">Harper Kaplinski</div>
+            <div class="chat-item" onclick="openChat('Madee Moreno')">Madee Moreno</div>
+            <div class="chat-item" onclick="openChat('Cirrus Ivangrade')">Cirrus Ivangrade</div>
+            <div class="chat-item" onclick="openChat('Samantha Hapon')">Samantha Hapon</div>
+        </div>
+
+        <div class="chat-window">
+            <div class="chat-header" id="chat-header">Select a chat to start messaging</div>
+            <div class="chat-messages" id="chat-messages">
+                <!-- Messages will appear here -->
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chat-input" placeholder="Type a message...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentChat = '';
+
+        function openChat(chatName) {
+            currentChat = chatName;
+            document.getElementById('chat-header').textContent = `Chatting with ${chatName}`;
+            document.getElementById('chat-messages').innerHTML = ''; // Clear messages
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const messageText = input.value.trim();
+
+            if (messageText && currentChat) {
+                const chatMessages = document.getElementById('chat-messages');
+                const newMessage = document.createElement('div');
+                newMessage.classList.add('message');
+                newMessage.innerHTML = `<div class="sender">You</div><div class="text">${messageText}</div>`;
+                chatMessages.appendChild(newMessage);
+                input.value = '';
+            }
+        }
+    </script>
+</body>
+</html>

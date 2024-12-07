@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - SienaSeeks</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffdab9;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: linear-gradient(90deg, #f08080, #f8ad9d);
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            margin-left: 1rem;
+            transition: transform 0.2s ease;
+        }
+
+        nav button:hover {
+            transform: scale(1.1);
+        }
+
+        .profile-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .profile-picture {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #f8ad9d;
+            margin: 0 auto 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .profile-name {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #f08080;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-info {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-buttons button {
+            margin: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background-color: #f4978e;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .profile-buttons button:hover {
+            background-color: #f08080;
+        }
+
+        .logout {
+            margin-top: 2rem;
+            padding: 0.8rem 2rem;
+            background-color: #f08080;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .logout:hover {
+            background-color: #d56969;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SienaSeeks</h1>
+        <nav>
+            <button onclick="window.location.href='mapboard.html'">Mapboard</button>
+            <button onclick="window.location.href='feed.html'">Feed</button>
+            <button onclick="window.location.href='messages.html'">Messages</button>
+            <button onclick="window.location.href='profile.html'">Profile</button>
+        </nav>
+    </header>
+
+    <div class="profile-container">
+        <div class="profile-picture">A</div>
+        <div class="profile-name">Alex Smith</div>
+        <div class="profile-info">Grade 11 - Section A</div>
+        <div class="profile-buttons">
+            <button>Message</button>
+            <button>Lost Items</button>
+            <button>Found Items</button>
+        </div>
+        <button class="logout" onclick="logout()">Log Out</button>
+    </div>
+
+    <script>
+        function logout() {
+            alert('You have logged out successfully!');
+            window.location.href = 'index.html'; // Redirect to onboarding page
+        }
+    </script>
+</body>
+</html>

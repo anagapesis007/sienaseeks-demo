@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SienaSeeks | Welcome</title>
+  <link rel="stylesheet" href="css/onboarding.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/logo.png">
+</head>
+<body>
+  <div class="main-container">
+    <div class="left-container">
+      <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/462542149_1091188605806202_1416797041117063575_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeEyi7UGxOyPZ92ru2kA-zNgoHlyyOhaN--geXLI6Fo373OCrhno0arHLTknNQHOWkA5OM7ad272LH7xGkj4CttE&_nc_ohc=132K-g5ySmIQ7kNvgERaxzY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.xx&oh=03_Q7cD1QGuKs4AcYhYobr2Ivjp5YDxu4eF1Cg2ll8dtfp5gX__Zw&oe=677916FE" alt="Welcome" class="illustration">
+    </div>
+    <div class="right-container">
+      <div class="form-container">
+        <h1 class="brand-title">SienaSeeks</h1>
+        <p id="form-title">Login to your account</p>
+        <form id="auth-form">
+          <input type="email" id="email" placeholder="Enter your email" required>
+          <input type="password" id="password" placeholder="Enter your password" required>
+          <button type="submit" id="auth-button">Login</button>
+        </form>
+        <p id="toggle-text">
+          Don’t have an account? <span id="toggle-link">Sign up</span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <script src="js/onboarding.js"></script>
+</body>
+</html>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f08080, #fbc4ab);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  max-width: 1200px;
+  background: #fff;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.left-container {
+  flex: 1;
+  background: #fbc4ab;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.illustration {
+  width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+.right-container {
+  flex: 1;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  text-align: center;
+  width: 100%;
+}
+
+.brand-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #f4978e;
+  margin-bottom: 20px;
+}
+
+#form-title {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+#auth-form input {
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+#auth-form input:focus {
+  outline: none;
+  border: 1px solid #f4978e;
+  box-shadow: 0px 0px 5px rgba(244, 151, 142, 0.5);
+}
+
+#auth-button {
+  width: 90%;
+  padding: 12px;
+  background: #f4978e;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#auth-button:hover {
+  background: #f08080;
+}
+
+#toggle-text {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+#toggle-link {
+  color: #f4978e;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#toggle-link:hover {
+  text-decoration: underline;
+}
+</style>
+
+<script>
+  document.getElementById("toggle-link").addEventListener("click", () => {
+  const title = document.getElementById("form-title");
+  const button = document.getElementById("auth-button");
+  const toggleText = document.getElementById("toggle-text");
+
+  if (button.textContent === "Login") {
+    title.textContent = "Create your account";
+    button.textContent = "Sign Up";
+    toggleText.innerHTML = 'Already have an account? <span id="toggle-link">Login</span>';
+  } else {
+    title.textContent = "Login to your account";
+    button.textContent = "Login";
+    toggleText.innerHTML = "Don't have an account? <span id='toggle-link'>Sign up</span>";
+  }
+});
+</script>
+</body>
+</html>
